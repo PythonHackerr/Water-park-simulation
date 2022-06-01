@@ -4,10 +4,11 @@ Lifeguard::Lifeguard(int id, string name, string surname)
 {
     Employee(id, name, surname);
 
-    /*set_name(name);
+    set_id(id);
+    set_name(name);
     set_surname(surname);
     calculate_salary();
-    create_timesheet();*/
+    create_timesheet();
 }
 
 void Lifeguard::calculate_salary()
