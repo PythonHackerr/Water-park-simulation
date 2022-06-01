@@ -14,6 +14,7 @@ class Employee
         string class_name;
         string name;
         string surname;
+        bool busy;
         int salary; //weekly salary
         Timesheet timesheet;
 
@@ -28,6 +29,8 @@ class Employee
         string get_name() const;
         void set_surname(string surname);
         string get_surname() const;
+        void set_busy(bool busy);
+        bool get_busy() const;
         virtual void calculate_salary();
         int get_salary() const;
         virtual void create_timesheet();

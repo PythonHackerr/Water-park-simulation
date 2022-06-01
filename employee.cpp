@@ -9,6 +9,7 @@ Employee::Employee()
     set_class_name("employee");
     set_name("no name");
     set_surname("no surname");
+    set_busy(false);
     calculate_salary();
     create_timesheet();
 }
@@ -61,6 +62,16 @@ void Employee::set_surname(string surname)
 string Employee::get_surname() const
 {
     return surname;
+}
+
+void Employee::set_busy(bool busy)
+{
+    this -> busy = busy;
+}
+
+bool Employee::get_busy() const
+{
+    return busy;
 }
 
 void Employee::calculate_salary()
