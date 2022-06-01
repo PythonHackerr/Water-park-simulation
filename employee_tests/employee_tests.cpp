@@ -73,29 +73,25 @@ TEST_CASE("employees tests")
         CHECK(lifeguard.get_surname() == "nowe_nazwisko");
     }
 
-    /*
+
     SECTION("tests of operator<<")
     {
-        std::stringstream stream_zero;
-        stream_zero << zero;
-        CHECK(stream_zero.str() == "(0 + 0i)");
+        std::stringstream ss_employee;
+        ss_employee << employee;
+        CHECK(ss_employee.str() == "Employee #1");
 
-        std::stringstream stream_one_real;
-        stream_one_real << one_real;
-        CHECK(stream_one_real.str() == "(1 + 0i)");
+        std::stringstream ss_cashier;
+        ss_cashier << cashier;
+        CHECK(ss_cashier.str() == "Cashier #2");
 
-        std::stringstream stream_one_imag;
-        stream_one_imag << one_imag;
-        CHECK(stream_one_imag.str() == "(0 + 1i)");
+        std::stringstream ss_instructor;
+        ss_instructor << instructor;
+        CHECK(ss_instructor.str() == "Instructor #3");
 
-        std::stringstream stream_one_real_one_imag;
-        stream_one_real_one_imag << one_real_one_imag;
-        CHECK(stream_one_real_one_imag.str() == "(1 + 1i)");
-
-        std::stringstream stream_some_number;
-        stream_some_number << some_number;
-        CHECK(stream_some_number.str() == "(2.4 + 3.9i)");
-    }*/
+        std::stringstream ss_lifeguard;
+        ss_lifeguard << lifeguard;
+        CHECK(ss_lifeguard.str() == "Lifeguard #4");
+    }
 }
 
 TEST_CASE("timesheet tests")

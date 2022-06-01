@@ -24,3 +24,9 @@ void Lifeguard::create_timesheet()
         pair<int,int>(10, 15), pair<int,int>(10, 15), pair<int,int>(9, 12));
     this -> timesheet = timesheet;
 }
+
+std::ostream& operator<<(std::ostream& os, const Lifeguard& lifeguard)
+{
+    os << "Lifeguard #" << lifeguard.get_id();
+    return os;
+}

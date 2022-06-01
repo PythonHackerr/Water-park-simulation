@@ -10,5 +10,6 @@ class Instructor : public Employee
         void calculate_salary() override;
         void create_timesheet() override;
 
+        friend std::ostream& operator<<(std::ostream& os, const Instructor& instructor);
 };
 #endif

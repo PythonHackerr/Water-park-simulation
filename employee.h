@@ -32,6 +32,5 @@ class Employee
         int get_hours() const;
 
         friend std::ostream& operator<<(std::ostream& os, const Employee& employee);
-
 };
 #endif

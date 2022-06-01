@@ -22,3 +22,9 @@ void Cashier::create_timesheet()
         pair<int,int>(9, 15), pair<int,int>(9, 15), pair<int,int>(9, 12));
     this -> timesheet = timesheet;
 }
+
+std::ostream& operator<<(std::ostream& os, const Cashier& cashier)
+{
+    os << "Cashier #" << cashier.get_id();
+    return os;
+}

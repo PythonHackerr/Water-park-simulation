@@ -22,3 +22,9 @@ void Instructor::create_timesheet()
         pair<int,int>(9, 14), pair<int,int>(9, 12), pair<int,int>(9, 12));
     this -> timesheet = timesheet;
 }
+
+std::ostream& operator<<(std::ostream& os, const Instructor& instructor)
+{
+    os << "Instructor #" << instructor.get_id();
+    return os;
+}
