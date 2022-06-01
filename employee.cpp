@@ -20,6 +20,7 @@ Employee::Employee(int id, string name, string surname)
     set_class_name("employee");
     set_name(name);
     set_surname(surname);
+    set_busy(false);
     calculate_salary();
     create_timesheet();
 }
@@ -69,7 +70,7 @@ void Employee::set_busy(bool busy)
     this -> busy = busy;
 }
 
-bool Employee::get_busy() const
+bool Employee::is_busy() const
 {
     return busy;
 }

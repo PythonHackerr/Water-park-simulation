@@ -30,7 +30,7 @@ class Employee
         void set_surname(string surname);
         string get_surname() const;
         void set_busy(bool busy);
-        bool get_busy() const;
+        bool is_busy() const;
         virtual void calculate_salary();
         int get_salary() const;
         virtual void create_timesheet();

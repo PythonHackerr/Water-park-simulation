@@ -13,64 +13,82 @@ TEST_CASE("employees tests")
     Instructor instructor(3, "i", "I");
     Lifeguard lifeguard(4, "l", "L");
 
-    SECTION("employee - id, name, surname")
+    SECTION("employee - id, class_name, name, surname, busy")
     {
-        Employee employee1;
-        CHECK(employee1.get_id() == -1);
-        CHECK(employee1.get_name() == "no name");
-        CHECK(employee1.get_surname() == "no surname");
+        Employee default_employee;
+        CHECK(default_employee.get_id() == -1);
+        CHECK(default_employee.get_class_name() == "employee");
+        CHECK(default_employee.get_name() == "no name");
+        CHECK(default_employee.get_surname() == "no surname");
+        CHECK(default_employee.is_busy() == false);
 
         CHECK(employee.get_id() == 1);
+        CHECK(employee.get_class_name() == "employee");
         CHECK(employee.get_name() == "e");
         CHECK(employee.get_surname() == "E");
+        CHECK(employee.is_busy() == false);
         employee.set_id(10);
         CHECK(employee.get_id() == 10);
         employee.set_name("nowe_imie");
         CHECK(employee.get_name() == "nowe_imie");
         employee.set_surname("nowe_nazwisko");
         CHECK(employee.get_surname() == "nowe_nazwisko");
+        employee.set_busy(true);
+        CHECK(employee.is_busy() == true);
     }
 
 
-    SECTION("cashier - id, name, surname")
+    SECTION("cashier - id, class_name, name, surname, busy")
     {
         CHECK(cashier.get_id() == 2);
+        CHECK(cashier.get_class_name() == "cashier");
         CHECK(cashier.get_name() == "c");
         CHECK(cashier.get_surname() == "C");
+        CHECK(cashier.is_busy() == false);
         cashier.set_id(11);
         CHECK(cashier.get_id() == 11);
         cashier.set_name("nowe_imie");
         CHECK(cashier.get_name() == "nowe_imie");
         cashier.set_surname("nowe_nazwisko");
         CHECK(cashier.get_surname() == "nowe_nazwisko");
+        cashier.set_busy(true);
+        CHECK(cashier.is_busy() == true);
     }
 
 
-    SECTION("instructor - id, name, surname")
+    SECTION("instructor - id, class_name, name, surname, busy")
     {
         CHECK(instructor.get_id() == 3);
+        CHECK(instructor.get_class_name() == "instructor");
         CHECK(instructor.get_name() == "i");
         CHECK(instructor.get_surname() == "I");
+        CHECK(instructor.is_busy() == false);
         instructor.set_id(12);
         CHECK(instructor.get_id() == 12);
         instructor.set_name("nowe_imie");
         CHECK(instructor.get_name() == "nowe_imie");
         instructor.set_surname("nowe_nazwisko");
         CHECK(instructor.get_surname() == "nowe_nazwisko");
+        instructor.set_busy(true);
+        CHECK(instructor.is_busy() == true);
     }
 
 
-    SECTION("lifeguard - id, name, surname")
+    SECTION("lifeguard - id, class_name, name, surname, busy")
     {
         CHECK(lifeguard.get_id() == 4);
+        CHECK(lifeguard.get_class_name() == "lifeguard");
         CHECK(lifeguard.get_name() == "l");
         CHECK(lifeguard.get_surname() == "L");
+        CHECK(lifeguard.is_busy() == false);
         lifeguard.set_id(13);
         CHECK(lifeguard.get_id() == 13);
         lifeguard.set_name("nowe_imie");
         CHECK(lifeguard.get_name() == "nowe_imie");
         lifeguard.set_surname("nowe_nazwisko");
         CHECK(lifeguard.get_surname() == "nowe_nazwisko");
+        lifeguard.set_busy(true);
+        CHECK(lifeguard.is_busy() == true);
     }
 
 
