@@ -3,30 +3,21 @@
 
 #include <iostream>
 
-class Pair //krotka dwoch elementow
-{
-    private:
-        int first;
-        int second;
-
-    public:
-        Pair(int first, int second);
-        int get_first() const;
-        int get_second() const;
-};
+using std::pair;
 
 class Timesheet
 {
     private:
-        Pair mon;
-        Pair tue;
-        Pair wed;
-        Pair thu;
-        Pair fri;
+        pair <int, int> mon;
+        pair <int, int> tue;
+        pair <int, int> wed;
+        pair <int, int> thu;
+        pair <int, int> fri;
 
     public:
         Timesheet();
-        Timesheet(Pair mon, Pair tue, Pair wed, Pair thu, Pair fri);
+        Timesheet(pair <int, int> mon, pair <int, int> tue, pair <int, int> wed,
+                pair <int, int> thu, pair <int, int> fri);
         int get_hours() const;
 
         friend std::ostream& operator<<(std::ostream& os, const Timesheet& timesheet);

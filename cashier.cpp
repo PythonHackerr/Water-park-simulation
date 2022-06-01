@@ -18,7 +18,8 @@ void Cashier::calculate_salary()
 
 void Cashier::create_timesheet()
 {
-    Timesheet timesheet = Timesheet(Pair(9, 16), Pair(9, 16), Pair(9, 15), Pair(9, 15), Pair(9, 12));
+    Timesheet timesheet = Timesheet(pair<int,int>(9, 16), pair<int,int>(9, 16),
+        pair<int,int>(9, 15), pair<int,int>(9, 15), pair<int,int>(9, 12));
     this -> timesheet = timesheet;
 }
 

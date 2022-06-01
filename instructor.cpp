@@ -18,6 +18,7 @@ void Instructor::calculate_salary()
 
 void Instructor::create_timesheet()
 {
-    Timesheet timesheet = Timesheet(Pair(9, 14), Pair(9, 14), Pair(9, 14), Pair(9, 12), Pair(9, 12));
+    Timesheet timesheet = Timesheet(pair<int,int>(9, 14), pair<int,int>(9, 14),
+        pair<int,int>(9, 14), pair<int,int>(9, 12), pair<int,int>(9, 12));
     this -> timesheet = timesheet;
 }

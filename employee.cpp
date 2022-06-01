@@ -63,7 +63,8 @@ int Employee::get_salary() const
 
 void Employee::create_timesheet()
 {
-    Timesheet timesheet = Timesheet(Pair(0, 0), Pair(0, 0), Pair(0, 0), Pair(0, 0), Pair(0, 0));
+    Timesheet timesheet = Timesheet(pair<int,int>(0, 0), pair<int,int>(0, 0),
+        pair<int,int>(0, 0), pair<int,int>(0, 0), pair<int,int>(0, 0));
     this -> timesheet = timesheet;
 }
 

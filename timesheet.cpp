@@ -1,42 +1,31 @@
 #include "timesheet.h"
 
-Pair::Pair(int first, int second) : first(first), second(second)
+Timesheet::Timesheet():mon(pair<int,int>(0, 0)), tue(pair<int,int>(0, 0)),
+    wed(pair<int,int>(0, 0)), thu(pair<int,int>(0, 0)), fri(pair<int,int>(0, 0))
 {}
 
-int Pair::get_first() const
-{
-    return first;
-}
-
-int Pair::get_second() const
-{
-    return second;
-}
-
-Timesheet::Timesheet():mon(Pair(0, 0)), tue(Pair(0, 0)), wed(Pair(0, 0)), thu(Pair(0, 0)), fri(Pair(0, 0))
-{}
-
-Timesheet::Timesheet(Pair mon, Pair tue, Pair wed, Pair thu, Pair fri) :
+Timesheet::Timesheet(pair <int, int> mon, pair <int, int> tue, pair <int, int> wed,
+                pair <int, int> thu, pair <int, int> fri) :
     mon(mon), tue(tue), wed(wed), thu(thu), fri(fri)
 {}
 
 int Timesheet::get_hours() const
 {
     int total_hours=0;
-    total_hours += (mon.get_second() - mon.get_first());
-    total_hours += (tue.get_second() - tue.get_first());
-    total_hours += (wed.get_second() - wed.get_first());
-    total_hours += (thu.get_second() - thu.get_first());
-    total_hours += (fri.get_second() - fri.get_first());
+    total_hours += (mon.second - mon.first);
+    total_hours += (tue.second - tue.first);
+    total_hours += (wed.second - wed.first);
+    total_hours += (thu.second - thu.first);
+    total_hours += (fri.second - fri.first);
     return total_hours;
 }
 
 std::ostream& operator<<(std::ostream& os, const Timesheet& timesheet)
 {
-    os << "Monday: " << timesheet.mon.get_first() << " - " << timesheet.mon.get_second() << "\n";
-    os << "Tuesday: " << timesheet.tue.get_first() << " - " << timesheet.tue.get_second() << "\n";
-    os << "Wednesday: " << timesheet.wed.get_first() << " - " << timesheet.wed.get_second() << "\n";
-    os << "Thursday: " << timesheet.thu.get_first() << " - " << timesheet.thu.get_second() << "\n";
-    os << "Friday: " << timesheet.fri.get_first() << " - " << timesheet.fri.get_second() << "\n";
+    os << "Monday: " << timesheet.mon.first << " - " << timesheet.mon.second << "\n";
+    os << "Tuesday: " << timesheet.tue.first << " - " << timesheet.tue.second << "\n";
+    os << "Wednesday: " << timesheet.wed.first << " - " << timesheet.wed.second << "\n";
+    os << "Thursday: " << timesheet.thu.first << " - " << timesheet.thu.second << "\n";
+    os << "Friday: " << timesheet.fri.first << " - " << timesheet.fri.second << "\n";
     return os;
 }

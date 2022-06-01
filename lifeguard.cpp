@@ -20,6 +20,7 @@ void Lifeguard::calculate_salary()
 
 void Lifeguard::create_timesheet()
 {
-    Timesheet timesheet = Timesheet(Pair(10, 16), Pair(10, 16), Pair(10, 15), Pair(10, 15), Pair(9, 12));
+    Timesheet timesheet = Timesheet(pair<int,int>(10, 16), pair<int,int>(10, 16),
+        pair<int,int>(10, 15), pair<int,int>(10, 15), pair<int,int>(9, 12));
     this -> timesheet = timesheet;
 }
