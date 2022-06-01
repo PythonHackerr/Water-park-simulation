@@ -5,7 +5,7 @@ using std::string;
 
 Employee::Employee()
 {
-    set_id(0);
+    set_id(-1);
     set_name("no name");
     set_surname("no surname");
     calculate_salary();
@@ -80,6 +80,6 @@ int Employee::get_hours() const
 
 std::ostream& operator<<(std::ostream& os, const Employee& employee)
 {
-    os << "Employee #" << employee.get_id() << "\n";
+    os << "Employee #" << employee.get_id();
     return os;
 }

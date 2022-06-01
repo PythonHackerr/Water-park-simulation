@@ -10,7 +10,7 @@ using std::string;
 class Employee
 {
     protected:
-        int id; // 0 - wrong id
+        int id; // -1 - invalid id
         string name;
         string surname;
         int salary; //weekly salary

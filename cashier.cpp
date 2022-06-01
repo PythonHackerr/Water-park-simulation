@@ -22,7 +22,3 @@ void Cashier::create_timesheet()
         pair<int,int>(9, 15), pair<int,int>(9, 15), pair<int,int>(9, 12));
     this -> timesheet = timesheet;
 }
-
-
-Cashier cashier(1, "imie", "nazwisko");
-string name = cashier.get_name();

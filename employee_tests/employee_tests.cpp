@@ -15,7 +15,7 @@ TEST_CASE("employees tests")
     SECTION("employee - id, name, surname")
     {
         Employee employee1;
-        CHECK(employee1.get_id() == 0);
+        CHECK(employee1.get_id() == -1);
         CHECK(employee1.get_name() == "no name");
         CHECK(employee1.get_surname() == "no surname");
 
