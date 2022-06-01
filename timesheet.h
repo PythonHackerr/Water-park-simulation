@@ -7,14 +7,13 @@ using std::pair;
 
 class Timesheet
 {
-    private:
+    public:
         pair <int, int> mon;
         pair <int, int> tue;
         pair <int, int> wed;
         pair <int, int> thu;
         pair <int, int> fri;
 
-    public:
         Timesheet();
         Timesheet(pair <int, int> mon, pair <int, int> tue, pair <int, int> wed,
                 pair <int, int> thu, pair <int, int> fri);

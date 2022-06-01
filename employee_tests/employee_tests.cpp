@@ -5,7 +5,7 @@
 #include "../lifeguard.h"
 #include <sstream>
 
-TEST_CASE("employees tests", "[employee]")
+TEST_CASE("employees tests")
 {
     Employee employee(1, "e", "E");
     Cashier cashier(2, "c", "C");
@@ -14,6 +14,11 @@ TEST_CASE("employees tests", "[employee]")
 
     SECTION("employee - id, name, surname")
     {
+        Employee employee1;
+        CHECK(employee1.get_id() == 0);
+        CHECK(employee1.get_name() == "no name");
+        CHECK(employee1.get_surname() == "no surname");
+
         CHECK(employee.get_id() == 1);
         CHECK(employee.get_name() == "e");
         CHECK(employee.get_surname() == "E");
@@ -120,4 +125,36 @@ TEST_CASE("employees tests", "[employee]")
     }*/
 
 
+}
+
+TEST_CASE("timesheet tests")
+{
+    pair<int,int> mon = pair<int,int>(9, 16);
+    pair<int,int> tue = pair<int,int>(9, 15);
+    pair<int,int> wed = pair<int,int>(9, 14);
+    pair<int,int> thu = pair<int,int>(9, 13);
+    pair<int,int> fri = pair<int,int>(9, 12);
+    Timesheet timesheet(mon ,tue, wed, thu, fri);
+
+    SECTION("timesheet - constructors")
+    {
+        CHECK(timesheet.mon == pair<int,int> (9,16));
+        CHECK(timesheet.tue == pair<int,int> (9,15));
+        CHECK(timesheet.wed == pair<int,int> (9,14));
+        CHECK(timesheet.thu == pair<int,int> (9,13));
+        CHECK(timesheet.fri == pair<int,int> (9,12));
+    }
+
+    SECTION("timesheet - get_hours")
+    {
+        CHECK(timesheet.get_hours() == 25);
+    }
+
+    SECTION("timesheet - operator<<")
+    {
+        std::stringstream ss;
+        ss<<timesheet;
+        CHECK(ss.str() == "Monday: 9 - 16\nTuesday: 9 - 15\nWednesday: 9 - 14\nThursday: 9 - 13\nFriday: 9 - 12\n");
+
+    }
 }
