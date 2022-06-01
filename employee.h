@@ -11,6 +11,7 @@ class Employee
 {
     protected:
         int id; // -1 - invalid id
+        string class_name;
         string name;
         string surname;
         int salary; //weekly salary
@@ -21,6 +22,8 @@ class Employee
         Employee(int id, string name, string surname);
         void set_id(int id);
         int get_id() const;
+        void set_class_name(string class_name);
+        string get_class_name() const;
         void set_name(string name);
         string get_name() const;
         void set_surname(string surname);

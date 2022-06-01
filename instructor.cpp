@@ -3,6 +3,7 @@
 Instructor::Instructor(int id, string name, string surname)
 {
     set_id(id);
+    set_class_name("instructor");
     set_name(name);
     set_surname(surname);
     calculate_salary();

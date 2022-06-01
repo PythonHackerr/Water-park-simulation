@@ -6,6 +6,7 @@ using std::string;
 Employee::Employee()
 {
     set_id(-1);
+    set_class_name("employee");
     set_name("no name");
     set_surname("no surname");
     calculate_salary();
@@ -15,6 +16,7 @@ Employee::Employee()
 Employee::Employee(int id, string name, string surname)
 {
     set_id(id);
+    set_class_name("employee");
     set_name(name);
     set_surname(surname);
     calculate_salary();
@@ -29,6 +31,16 @@ void Employee::set_id(int id)
 int Employee::get_id()const
 {
     return id;
+}
+
+void Employee::set_class_name(string class_name)
+{
+    this -> class_name = class_name;
+}
+
+string Employee::get_class_name() const
+{
+    return class_name;
 }
 
 void Employee::set_name(string name)
