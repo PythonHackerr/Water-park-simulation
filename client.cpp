@@ -35,4 +35,5 @@ int Client::get_ticket_id()const
 std::ostream& operator<<(std::ostream& os, const Client& client)
 {
     os << "Client #" << client.get_id();
+    return os;
 }

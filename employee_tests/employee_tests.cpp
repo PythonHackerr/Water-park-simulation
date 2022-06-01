@@ -3,6 +3,7 @@
 #include "../cashier.h"
 #include "../instructor.h"
 #include "../lifeguard.h"
+#include "../client.h"
 #include <sstream>
 
 TEST_CASE("employees tests")
@@ -73,34 +74,6 @@ TEST_CASE("employees tests")
     }
 
     /*
-    SECTION("comparison tests")
-    {
-        ComplexNumber another_zero;
-        ComplexNumber another_one_real(1.0, 0.0);
-        ComplexNumber another_one_imag(0.0, 1.0);
-        ComplexNumber another_one_real_one_imag(1.0, 1.0);
-        ComplexNumber another_some_number(2.4, 3.9);
-
-        CHECK(zero == zero);
-        CHECK(zero == another_zero);
-        CHECK(one_real == one_real);
-        CHECK(one_real == another_one_real);
-        CHECK(some_number == some_number);
-        CHECK(another_some_number == some_number);
-        CHECK(another_one_imag == one_imag);
-        CHECK(one_real_one_imag == another_one_real_one_imag);
-        CHECK_FALSE(zero == another_some_number);
-        CHECK_FALSE(one_imag == one_real_one_imag);
-
-        CHECK_FALSE(zero != another_zero);
-        CHECK_FALSE(another_one_real != one_real);
-        CHECK_FALSE(one_imag != another_one_imag);
-        CHECK_FALSE(another_one_real_one_imag != one_real_one_imag);
-        CHECK_FALSE(some_number != another_some_number);
-        CHECK(one_real != one_real_one_imag);
-        CHECK(one_real_one_imag != another_some_number);
-    }
-
     SECTION("tests of operator<<")
     {
         std::stringstream stream_zero;
@@ -123,8 +96,6 @@ TEST_CASE("employees tests")
         stream_some_number << some_number;
         CHECK(stream_some_number.str() == "(2.4 + 3.9i)");
     }*/
-
-
 }
 
 TEST_CASE("timesheet tests")
@@ -155,6 +126,31 @@ TEST_CASE("timesheet tests")
         std::stringstream ss;
         ss<<timesheet;
         CHECK(ss.str() == "Monday: 9 - 16\nTuesday: 9 - 15\nWednesday: 9 - 14\nThursday: 9 - 13\nFriday: 9 - 12\n");
+    }
+}
 
+TEST_CASE("client tests")
+{
+    Client default_client;
+    Client client(1, 1);
+
+    SECTION("client - getters, setters")
+    {
+        CHECK(default_client.get_id() == -1);
+        CHECK(default_client.get_ticket_id() == -1);
+
+        CHECK(client.get_id() == 1);
+        CHECK(client.get_ticket_id() == 1);
+        client.set_id(2);
+        CHECK(client.get_id() == 2);
+        client.set_ticket_id(3);
+        CHECK(client.get_ticket_id() == 3);
+    }
+
+    SECTION("client - operator<<")
+    {
+        std::stringstream ss;
+        ss<<client;
+        CHECK(ss.str() == "Client #1");
     }
 }
