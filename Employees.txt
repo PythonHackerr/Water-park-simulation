@@ -1,3 +1,0 @@
-Cashier 1 Adam Nowak 2
-Instructor 2 Jan Kowalski 3
-Lifeguard 3 Ewa Nowak 4

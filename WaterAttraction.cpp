@@ -10,17 +10,17 @@ using namespace std;
 
 class WaterAttraction
 {
-private:
+protected:
+    int id;
     string name;
     vector<Client> clients; // currently using this attraction
-    vector<Employee> employees;
 
 public:
-    WaterAttraction(string name, vector<Client> clients, vector<Employee> employees)
+    WaterAttraction(int id, string name, vector<Client> clients)
     {
+        this->id = id;
         this->name = name;
         this->clients = clients;
-        this->employees = employees;
     }
 
     string GetName()
@@ -35,15 +35,6 @@ public:
     void SetClients(vector<Client> clients)
     {
         this->clients = clients;
-    };
-
-    vector<Employee> GetEmployees()
-    {
-        return employees;
-    };
-    void SetEmployees(vector<Employee> employees)
-    {
-        this->employees = employees;
     };
 
     bool CheckIfPersonExists(int person_id)
@@ -82,15 +73,6 @@ public:
             return;
         }
         clients.push_back(client);
-    };
-    void AddEmployee(Employee employee)
-    {
-        if (CheckIfPersonExists(employee.get_id()) == true)
-        {
-            throw "Person already exists!";
-            return;
-        }
-        employees.push_back(employee);
     };
 
     virtual void DisplayInfo()
