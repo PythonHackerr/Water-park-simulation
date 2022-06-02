@@ -16,6 +16,13 @@ protected:
     vector<Client> clients; // currently using this attraction
 
 public:
+    WaterAttraction()
+    {
+        this->id = -1;
+        this->name = "WaterAttraction";
+        this->clients = {};
+    }
+
     WaterAttraction(int id, vector<Client> clients)
     {
         this->id = id;
@@ -39,7 +46,7 @@ public:
 
     bool CheckIfPersonExists(int person_id)
     {
-        for (int i = 0; i < clients.size(); i++)
+        for (long unsigned int i = 0; i < clients.size(); i++)
         {
             if (clients[i].get_id() == person_id)
             {
@@ -56,7 +63,7 @@ public:
             return;
         }
         vector<Client> new_clientss;
-        for (int i = 0; i < clients.size(); i++)
+        for (long unsigned int i = 0; i < clients.size(); i++)
         {
             if (person_id != clients[i].get_id())
             {
@@ -83,7 +90,7 @@ public:
         // cout << ";  Swimming ability required: " << swimming_ability;
         // cout << ";  Minimum age: " << min_age << endl;
         // cout << "People currently using this attraction: " << endl;
-        for (int i = 0; i < clients.size(); i++)
+        for (long unsigned int i = 0; i < clients.size(); i++)
         {
             cout << clients[i] << "; ";
         }
