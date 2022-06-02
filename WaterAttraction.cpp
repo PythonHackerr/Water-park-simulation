@@ -31,6 +31,11 @@ public:
         return name;
     };
 
+    int GetId()
+    {
+        return id;
+    }
+
     friend std::ostream& operator<<(std::ostream& os, const WaterAttraction& water_attraction)
     {
         os << water_attraction.name << " #" << water_attraction.id;
