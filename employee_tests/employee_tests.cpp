@@ -147,7 +147,7 @@ TEST_CASE("timesheet tests")
 TEST_CASE("client tests")
 {
     Client default_client;
-    Client client(1, Ticket(1, 1, 12, false), WaterAttraction(1, {}));
+    Client client(1, Ticket(1, 1, 12, false), WaterAttraction(1));
 
     SECTION("client - getters, setters")
     {
