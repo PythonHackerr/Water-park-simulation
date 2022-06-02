@@ -4,10 +4,11 @@
 #include <string>
 #include <iostream>
 #include "timesheet.h"
+#include "employee_interface.h"
 
 using std::string;
 
-class Employee
+class Employee : public Employee_Interface
 {
     protected:
         int id; // -1 - invalid id
