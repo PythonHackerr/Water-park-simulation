@@ -77,8 +77,9 @@ int Simulation::get_clients_per_hour() const
 
 void Simulation::get_new_clients()
 {
-    int current_n_clients = client_list.size();
-    for(int i=1; i<=get_clients_per_hour(); i++)
+    int clients_per_hour = get_clients_per_hour();
+    int current_n_clients = (current_hour-start_hour)*clients_per_hour;
+    for(int i=1; i<=clients_per_hour; i++)
     {
         int n_cashiers = 0;
         int n_instructors = 0;
@@ -137,12 +138,31 @@ void Simulation::get_new_clients()
             cout << client_list.back() << " went to " << client_list.back().get_place() << endl;
         }
         cout<<endl;
+        time_stop();
     }
+}
+
+void Simulation::clients_leave()
+{
+    for(int i=0; i<client_list.size(); i++)
+    {
+        if(client_list[i].get_ticket().get_final_hour() == current_hour)
+        {
+            cout<<client_list[i]<<" leaves\n"<<endl;
+            time_stop();
+        }
+    }
+}
+
+void Simulation::time_stop()
+{
+    std::this_thread::sleep_for (std::chrono::milliseconds(750));
 }
 
 void Simulation::cycle()
 {
     cout<<"Current hour: "<<current_hour<<endl;
+    clients_leave();
     get_new_clients();
     current_hour += step;
     cout<<endl;
@@ -155,6 +175,7 @@ void Simulation::run()
         cycle();
     }
     cout<<"Current hour: "<<current_hour<<endl;
+    clients_leave();
     cout<<"Pool has closed"<<endl;
 
 }

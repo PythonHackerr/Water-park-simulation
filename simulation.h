@@ -6,6 +6,7 @@
 #include <iostream>
 #include <chrono>
 #include <random>
+#include <thread>
 #include "employee.h"
 #include "cashier.h"
 #include "instructor.h"
@@ -50,6 +51,8 @@ class Simulation
         void place_lifeguards();
         int get_clients_per_hour() const;
         void get_new_clients();
+        void clients_leave();
+        void time_stop();
         void cycle();
         void run();
 
