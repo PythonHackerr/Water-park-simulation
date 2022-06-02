@@ -44,4 +44,10 @@ public:
     {
         WaterAttraction::DisplayInfo();
     }
+
+    friend std::ostream& operator<<(std::ostream& os, const LanePool& lanepool)
+    {
+        os << "Lane Pool #" << lanepool.id;
+        return os;
+    }
 };

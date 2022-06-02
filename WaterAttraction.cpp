@@ -88,4 +88,16 @@ public:
             cout << clients[i] << "; ";
         }
     }
+
+    friend std::ostream& operator<<(std::ostream& os, const WaterAttraction& water_attraction)
+    {
+        os << "Water attraction #" << water_attraction.id;
+        return os;
+    }
 };
+/*
+std::ostream& operator<<(std::ostream& os, const WaterAttraction& water_attraction)
+{
+    os << "Water attraction #" << water_attraction.id;
+    return os;
+}*/

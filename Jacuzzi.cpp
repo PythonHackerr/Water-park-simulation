@@ -18,4 +18,10 @@ public:
     {
         WaterAttraction::DisplayInfo();
     }
+
+    friend std::ostream& operator<<(std::ostream& os, const Jacuzzi& jacuzzi)
+    {
+        os << "Jacuzzi #" << jacuzzi.id;
+        return os;
+    }
 };
