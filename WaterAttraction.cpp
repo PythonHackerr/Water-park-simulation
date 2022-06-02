@@ -16,10 +16,10 @@ protected:
     vector<Client> clients; // currently using this attraction
 
 public:
-    WaterAttraction(int id, string name, vector<Client> clients)
+    WaterAttraction(int id, vector<Client> clients)
     {
         this->id = id;
-        this->name = name;
+        this->name = "WaterAttraction";
         this->clients = clients;
     }
 

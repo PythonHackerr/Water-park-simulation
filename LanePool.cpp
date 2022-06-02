@@ -14,10 +14,10 @@ private:
     float depth;
 
 public:
-    LanePool(int id, string name, vector<Client> clients, float depth, enum ability swimming_ability = amatuer_swimmer) : WaterAttraction(id, name, clients)
+    LanePool(int id, vector<Client> clients, float depth, enum ability swimming_ability = amatuer_swimmer) : WaterAttraction(id, clients)
     {
         this->id = id;
-        this->name = name;
+        this->name = "Lanepool";
         this->clients = clients;
         this->depth = depth;
         this->swimming_ability = swimming_ability;

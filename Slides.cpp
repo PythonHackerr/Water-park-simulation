@@ -9,10 +9,10 @@ using namespace std;
 class Slides : public WaterAttraction
 {
 public:
-    Slides(int id, string name, vector<Client> clients) : WaterAttraction(id, name, clients)
+    Slides(int id, vector<Client> clients) : WaterAttraction(id, clients)
     {
         this->id = id;
-        this->name = name;
+        this->name = "Slides";
         this->clients = clients;
     }
 

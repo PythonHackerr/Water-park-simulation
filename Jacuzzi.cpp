@@ -8,10 +8,10 @@ using namespace std;
 class Jacuzzi : public WaterAttraction
 {
 public:
-    Jacuzzi(int id, string name, vector<Client> clients) : WaterAttraction(id, name, clients)
+    Jacuzzi(int id, vector<Client> clients) : WaterAttraction(id, clients)
     {
         this->id = id;
-        this->name = name;
+        this->name = "jacuzzi";
         this->clients = clients;
     }
     void DisplayInfo() override
