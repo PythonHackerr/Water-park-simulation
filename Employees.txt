@@ -1,0 +1,6 @@
+1 Cashier Adam Nowak
+2 Instructor Jan Kowalski
+3 Lifeguard Ewa Nowak
+4 Cashier Peppa Pig
+5 Instructor Suzzy Sheep
+6 Lifeguard Mrs Rebecca
