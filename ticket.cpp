@@ -1,5 +1,14 @@
 #include "ticket.h"
 
+Ticket::Ticket()
+{
+    set_id(-1);
+    set_duration(0);
+    set_final_hour(0);
+    set_with_instructor(false);
+    set_price(0);
+}
+
 Ticket::Ticket(int id, int duration, int final_hour, bool with_instructor)
 {
     set_id(id);

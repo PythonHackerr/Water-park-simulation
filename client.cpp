@@ -3,13 +3,15 @@
 Client::Client()
 {
     set_id(-1);
-    set_ticket_id(-1);
+    set_ticket(Ticket());
+    set_place(WaterAttraction());
 }
 
-Client::Client(int id, int ticket_id)
+Client::Client(int id, Ticket ticket, WaterAttraction place)
 {
     set_id(id);
-    set_ticket_id(ticket_id);
+    set_ticket(ticket);
+    set_place(place);
 }
 
 void Client::set_id(int id)
@@ -22,14 +24,24 @@ int Client::get_id()const
     return id;
 }
 
-void Client::set_ticket_id(int ticket_id)
+void Client::set_ticket(Ticket ticket)
 {
-    this -> ticket_id = ticket_id;
+    this -> ticket = ticket;
 }
 
-int Client::get_ticket_id()const
+Ticket Client::get_ticket()const
 {
-    return ticket_id;
+    return ticket;
+}
+
+void Client::set_place(WaterAttraction place)
+{
+    this -> place = place;
+}
+
+WaterAttraction Client::get_place() const
+{
+    return place;
 }
 
 std::ostream& operator<<(std::ostream& os, const Client& client)

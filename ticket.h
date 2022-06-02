@@ -11,6 +11,7 @@ class Ticket
         int price;
 
     public:
+        Ticket();
         Ticket(int id, int duration, int final_hour, bool with_instructor);
         void set_id(int id);
         int get_id() const;

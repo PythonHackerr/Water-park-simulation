@@ -2,21 +2,25 @@
 #define CLIENT_H
 
 #include <iostream>
+#include "ticket.h"
+#include "WaterAttraction.cpp"
 
 class Client
 {
     private:
         int id; // -1 - invalid id
-        int ticket_id; // -1 - invalid id
-        //
+        Ticket ticket;
+        WaterAttraction place;
 
     public:
     Client();
-    Client(int id, int ticket_id);
+    Client(int id, Ticket ticket, WaterAttraction place);
     void set_id(int id);
     int get_id() const;
-    void set_ticket_id(int ticket_id);
-    int get_ticket_id() const;
+    void set_ticket(Ticket ticket);
+    Ticket get_ticket() const;
+    void set_place(WaterAttraction place);
+    WaterAttraction get_place() const;
 
     friend std::ostream& operator<<(std::ostream& os, const Client& client);
 
