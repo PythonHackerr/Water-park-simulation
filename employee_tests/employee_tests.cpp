@@ -18,13 +18,13 @@ TEST_CASE("employees tests")
     {
         Employee default_employee;
         CHECK(default_employee.get_id() == -1);
-        CHECK(default_employee.get_class_name() == "employee");
+        CHECK(default_employee.get_class_name() == "Employee");
         CHECK(default_employee.get_name() == "no name");
         CHECK(default_employee.get_surname() == "no surname");
         CHECK(default_employee.is_busy() == false);
 
         CHECK(employee.get_id() == 1);
-        CHECK(employee.get_class_name() == "employee");
+        CHECK(employee.get_class_name() == "Employee");
         CHECK(employee.get_name() == "e");
         CHECK(employee.get_surname() == "E");
         CHECK(employee.is_busy() == false);
@@ -42,7 +42,7 @@ TEST_CASE("employees tests")
     SECTION("cashier - id, class_name, name, surname, busy")
     {
         CHECK(cashier.get_id() == 2);
-        CHECK(cashier.get_class_name() == "cashier");
+        CHECK(cashier.get_class_name() == "Cashier");
         CHECK(cashier.get_name() == "c");
         CHECK(cashier.get_surname() == "C");
         CHECK(cashier.is_busy() == false);
@@ -60,7 +60,7 @@ TEST_CASE("employees tests")
     SECTION("instructor - id, class_name, name, surname, busy")
     {
         CHECK(instructor.get_id() == 3);
-        CHECK(instructor.get_class_name() == "instructor");
+        CHECK(instructor.get_class_name() == "Instructor");
         CHECK(instructor.get_name() == "i");
         CHECK(instructor.get_surname() == "I");
         CHECK(instructor.is_busy() == false);
@@ -78,7 +78,7 @@ TEST_CASE("employees tests")
     SECTION("lifeguard - id, class_name, name, surname, busy")
     {
         CHECK(lifeguard.get_id() == 4);
-        CHECK(lifeguard.get_class_name() == "lifeguard");
+        CHECK(lifeguard.get_class_name() == "Lifeguard");
         CHECK(lifeguard.get_name() == "l");
         CHECK(lifeguard.get_surname() == "L");
         CHECK(lifeguard.is_busy() == false);

@@ -5,7 +5,7 @@ Lifeguard::Lifeguard(int id, string name, string surname)
     Employee(id, name, surname);
 
     set_id(id);
-    set_class_name("lifeguard");
+    set_class_name("Lifeguard");
     set_name(name);
     set_surname(surname);
     calculate_salary();

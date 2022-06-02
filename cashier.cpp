@@ -3,7 +3,7 @@
 Cashier::Cashier(int id, string name, string surname)
 {
     set_id(id);
-    set_class_name("cashier");
+    set_class_name("Cashier");
     set_name(name);
     set_surname(surname);
     calculate_salary();

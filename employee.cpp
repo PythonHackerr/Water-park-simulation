@@ -6,7 +6,7 @@ using std::string;
 Employee::Employee()
 {
     set_id(-1);
-    set_class_name("employee");
+    set_class_name("Employee");
     set_name("no name");
     set_surname("no surname");
     set_busy(false);
@@ -17,7 +17,7 @@ Employee::Employee()
 Employee::Employee(int id, string name, string surname)
 {
     set_id(id);
-    set_class_name("employee");
+    set_class_name("Employee");
     set_name(name);
     set_surname(surname);
     set_busy(false);
@@ -104,6 +104,6 @@ int Employee::get_hours() const
 
 std::ostream& operator<<(std::ostream& os, const Employee& employee)
 {
-    os << "Employee #" << employee.get_id();
+    os << employee.get_class_name() << " #" << employee.get_id();
     return os;
 }

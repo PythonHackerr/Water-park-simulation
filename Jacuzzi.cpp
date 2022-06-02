@@ -11,7 +11,7 @@ public:
     Jacuzzi(int id) : WaterAttraction(id)
     {
         this->id = id;
-        this->name = "jacuzzi";
+        this->name = "Jacuzzi";
     }
 
     friend std::ostream& operator<<(std::ostream& os, const Jacuzzi& jacuzzi)
