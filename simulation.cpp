@@ -72,7 +72,16 @@ void Simulation::place_lifeguards()
 
 int Simulation::get_clients_per_hour() const
 {
-    return n_clients / (finish_hour - start_hour);
+    int clients_per_hour =  n_clients / (finish_hour - start_hour);
+    if(n_clients % (finish_hour - start_hour) == 0)
+    {
+        return clients_per_hour;
+    }
+    else
+    {
+        return clients_per_hour+1;
+    }
+
 }
 
 void Simulation::get_new_clients()
@@ -81,64 +90,67 @@ void Simulation::get_new_clients()
     int current_n_clients = (current_hour-start_hour)*clients_per_hour;
     for(int i=1; i<=clients_per_hour; i++)
     {
-        int n_cashiers = 0;
-        int n_instructors = 0;
-        for(int j=0; j<employee_list.size(); j++)
+        if(current_n_clients + i <= n_clients)
         {
-            if(employee_list[j].get_class_name() == "Cashier")
-            {
-                n_cashiers++;
-            }
-            else if (employee_list[j].get_class_name() == "Instructor")
-            {
-                n_instructors++;
-            }
-        }
-        int cashier_number = (generator() % n_cashiers)+1;
-        int id = current_n_clients+i;
-        int duration = (generator() % (get_finish_hour() - get_current_hour())) + 1;
-        Ticket ticket = Ticket(id, duration, current_hour+duration, false);
-        int instructor_chance = generator() % 5;
-        if(instructor_chance == 0)
-        {
-            ticket.set_with_instructor(true);
-        }
-        int place_index = (generator() % attraction_list.size());
-        client_list.push_back(Client(id, ticket, attraction_list[place_index]));
-        for(int j=0; j<employee_list.size(); j++)
-        {
-            if(employee_list[j].get_class_name() == "Cashier")
-            {
-                cashier_number--;
-            }
-            if(cashier_number == 0)
-            {
-                cout << employee_list[j] << " sold ticket to " << client_list.back()<<endl;
-                break;
-            }
-        }
-        if(client_list.back().get_ticket().is_with_instructor())
-        {
-            int instructor_number = (generator() % n_instructors)+1;
+            int n_cashiers = 0;
+            int n_instructors = 0;
             for(int j=0; j<employee_list.size(); j++)
             {
-                if(employee_list[j].get_class_name() == "Instructor")
+                if(employee_list[j].get_class_name() == "Cashier")
                 {
-                    instructor_number--;
+                    n_cashiers++;
                 }
-                if(instructor_number==0)
+                else if (employee_list[j].get_class_name() == "Instructor")
                 {
-                    cout<<client_list.back()<<" went to "<<client_list.back().get_place()<<" with "<<employee_list[j]<<endl;
+                    n_instructors++;
+                }
+            }
+            int cashier_number = (generator() % n_cashiers)+1;
+            int id = current_n_clients+i;
+            int duration = (generator() % (get_finish_hour() - get_current_hour())) + 1;
+            Ticket ticket = Ticket(id, duration, current_hour+duration, false);
+            int instructor_chance = generator() % 5;
+            if(instructor_chance == 0)
+            {
+                ticket.set_with_instructor(true);
+            }
+            int place_index = (generator() % attraction_list.size());
+            client_list.push_back(Client(id, ticket, attraction_list[place_index]));
+            for(int j=0; j<employee_list.size(); j++)
+            {
+                if(employee_list[j].get_class_name() == "Cashier")
+                {
+                    cashier_number--;
+                }
+                if(cashier_number == 0)
+                {
+                    cout << employee_list[j] << " sold ticket to " << client_list.back()<<endl;
                     break;
                 }
             }
+            if(client_list.back().get_ticket().is_with_instructor())
+            {
+                int instructor_number = (generator() % n_instructors)+1;
+                for(int j=0; j<employee_list.size(); j++)
+                {
+                    if(employee_list[j].get_class_name() == "Instructor")
+                    {
+                        instructor_number--;
+                    }
+                    if(instructor_number==0)
+                    {
+                        cout<<client_list.back()<<" went to "<<client_list.back().get_place()<<" with "<<employee_list[j]<<endl;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                cout << client_list.back() << " went to " << client_list.back().get_place() << endl;
+            }
+            cout<<endl;
+            time_stop();
         }
-        else
-        {
-            cout << client_list.back() << " went to " << client_list.back().get_place() << endl;
-        }
-        cout<<endl;
-        time_stop();
     }
 }
 
