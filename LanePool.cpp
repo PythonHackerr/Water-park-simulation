@@ -14,11 +14,10 @@ private:
     float depth;
 
 public:
-    LanePool(int id, vector<Client> clients, float depth, enum ability swimming_ability = amatuer_swimmer) : WaterAttraction(id, clients)
+    LanePool(int id, float depth, enum ability swimming_ability = amatuer_swimmer) : WaterAttraction(id)
     {
         this->id = id;
         this->name = "Lanepool";
-        this->clients = clients;
         this->depth = depth;
         this->swimming_ability = swimming_ability;
     }
@@ -39,11 +38,6 @@ public:
     {
         this->depth = depth;
     };
-
-    void DisplayInfo() override
-    {
-        WaterAttraction::DisplayInfo();
-    }
 
     friend std::ostream& operator<<(std::ostream& os, const LanePool& lanepool)
     {

@@ -8,15 +8,10 @@ using namespace std;
 class Jacuzzi : public WaterAttraction
 {
 public:
-    Jacuzzi(int id, vector<Client> clients) : WaterAttraction(id, clients)
+    Jacuzzi(int id) : WaterAttraction(id)
     {
         this->id = id;
         this->name = "jacuzzi";
-        this->clients = clients;
-    }
-    void DisplayInfo() override
-    {
-        WaterAttraction::DisplayInfo();
     }
 
     friend std::ostream& operator<<(std::ostream& os, const Jacuzzi& jacuzzi)

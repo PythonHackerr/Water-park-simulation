@@ -4,6 +4,7 @@
 #include "../instructor.h"
 #include "../lifeguard.h"
 #include "../client.h"
+#include "../WaterAttraction.cpp"
 #include <sstream>
 
 TEST_CASE("employees tests")
@@ -146,19 +147,18 @@ TEST_CASE("timesheet tests")
 TEST_CASE("client tests")
 {
     Client default_client;
-    Client client(1, 1);
+    Client client(1, Ticket(1, 1, 12, false), WaterAttraction(1, {}));
 
     SECTION("client - getters, setters")
     {
         CHECK(default_client.get_id() == -1);
-        CHECK(default_client.get_ticket_id() == -1);
 
         CHECK(client.get_id() == 1);
-        CHECK(client.get_ticket_id() == 1);
+        CHECK(client.get_ticket().get_id() == 1);
         client.set_id(2);
         CHECK(client.get_id() == 2);
-        client.set_ticket_id(3);
-        CHECK(client.get_ticket_id() == 3);
+        client.set_ticket(Ticket(2, 2, 12, false));
+        CHECK(client.get_ticket().get_id() == 2);
     }
 
     SECTION("client - operator<<")
